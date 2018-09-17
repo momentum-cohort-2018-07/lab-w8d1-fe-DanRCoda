@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 import textOptions from './textOptions'
+import TextInput from './TextInput'
+import TextOption from './TextOption'
+import ShrinkText from './ShrinkText'
 
 class App extends Component {
   constructor () {
@@ -53,33 +56,15 @@ class App extends Component {
 
   render () {
     const text = this.state.text
-    const shrunkText = this.shrinkText()
+    // const shrunkText = this.shrinkText().
     return (
       <div className='App container'>
         <h1>TweetShrink</h1>
         <div className='row'>
-          <div className='col'>
-            {/* TextEntry */}
-            <textarea
-              className='TextEntry-textbox'
-              placeholder='What do you want to shrink?'
-              onChange={this.updateText}
-              value={text} />
-            <div>
-              {text && `${text.length} characters`}
-            </div>
-            {/* end TextEntry */}
-          </div>
-          <div className='col'>
-            {/* ShrunkText */}
-            <div className='TextEntry-shrunk-text'>
-              {shrunkText}
-            </div>
-            <div>
-              {shrunkText && `${shrunkText.length} characters`}
-            </div>
-            {/* end ShrunkText */}
-          </div>
+          <div className='col' />
+          <TextInput text={text} enterText={this.enterText} />
+          <div className='col' />
+          <ShrinkText text={text} shrunkText={this.shrunkText} />
         </div>
         <div className='row options'>
           <div className='col-12'>
@@ -88,11 +73,7 @@ class App extends Component {
           {/* TextOptions */}
           {textOptions.map((option, idx) => (
             <div key={idx} className='col-6'>
-              {/* TextOption */}
-              <label htmlFor={option.id}>
-                <input type='checkbox' id={option.id} onChange={this.setOption(option.id)} /> {' ' + option.label}
-              </label>
-              {/* end TextOption */}
+              <TextOption option={option} setOption={this.setOption(option.id)} />
             </div>
           ))}
           {/* end TextOptions */}
