@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 
-class ShrinkText extends Component {
+class ShrunkText extends Component {
   render () {
+    const { shrunkText } = this.props
+    console.log(shrunkText)
     return (
       <div>
         <div className='TextEntry-shrunk-text'>
-          {this.props.shrunkText}
+          {shrunkText}
         </div>
         <div>
-          {this.props.shrunkText && `${this.props.shrunkText.length} characters`}
+          {shrunkText && `${shrunkText.length} characters`}
         </div>
       </div>
     )
   }
 }
 
-export default ShrinkText
+export default ShrunkText
