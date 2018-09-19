@@ -8,7 +8,7 @@ class TextInput extends Component {
     console.log(this.props.text)
     const { text, updateText } = this.props
     return (
-      <div>
+      <div className='col'>
         <textarea
           className='TextEntry-textbox'
           placeholder='What do you want to shrink?'

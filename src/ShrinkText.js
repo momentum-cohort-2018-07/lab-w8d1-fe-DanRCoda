@@ -5,7 +5,7 @@ class ShrunkText extends Component {
     const { shrunkText } = this.props
     console.log(shrunkText)
     return (
-      <div>
+      <div className='col'>
         <div className='TextEntry-shrunk-text'>
           {shrunkText}
         </div>

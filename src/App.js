@@ -57,15 +57,13 @@ class App extends Component {
   }
 
   render () {
-    const { text } = this.state.text
+    const { text } = this.state
     const shrunkText = this.shrinkText()
     return (
       <div className='App container'>
         <h1>TweetShrink</h1>
         <div className='row'>
-          <div className='col' />
-          <TextInput text={text} enterText={this.updateText} />
-          <div className='col' />
+          <TextInput text={text} updateText={this.updateText} />
           <ShrunkText shrunkText={shrunkText} />
         </div>
         <AllOptions textOptions={textOptions} setOption={this.setOption} />
